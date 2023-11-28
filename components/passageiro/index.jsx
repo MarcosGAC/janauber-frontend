@@ -1,17 +1,16 @@
 import React from 'react';
-import { createDrawerNavigator } from '@react-navigation/drawer';
-import DrawerContent from './drawerContent';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomePassageiro from './homePassageiro'; 
 import Ofertas from './ofertas';
 
-const Drawer = createDrawerNavigator();
+const Stack = createNativeStackNavigator();
 
 function HomePassageiroWDrawer() {
   return (
-    <Drawer.Navigator >
-        <Drawer.Screen name="HomePassageiro" component={HomePassageiro} />
-        <Drawer.Screen name="Ofertas" component={Ofertas} />
-    </Drawer.Navigator>
+    <Stack.Navigator >
+        <Stack.Screen name="HomePassageiro" component={HomePassageiro} />
+        <Stack.Screen name="Ofertas" component={Ofertas} />
+    </Stack.Navigator>
   );
 }
 

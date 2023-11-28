@@ -3,8 +3,6 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Login from './login.jsx';
 import ForgotPassword from './forgotPassword.jsx';
 import tw from 'twrnc';
-import HomePassageiroWDrawer from '../passageiro/index.jsx';
-
 const Stack = createNativeStackNavigator();
 
 function LoginScreen() {

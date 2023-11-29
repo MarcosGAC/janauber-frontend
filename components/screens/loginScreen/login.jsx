@@ -23,7 +23,7 @@ function Login({
       userMock[1].password === password &&
       userMock[1].type === "driver"
     ) {
-      return navigation.navigate("HomeDriverDrawer"); // Alteração aqui para o nome correto da tela
+      return navigation.navigate("HomeDriverDrawer"); 
     } else {
       return setStatus("Email ou senha inválidos");
     }

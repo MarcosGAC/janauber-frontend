@@ -22,6 +22,8 @@ function Register({ navigation }) {
   const [passengerInfo, setPassengerInfo] = useState({
     cpf: "",
     endereco: "",
+    nome: "",
+    idade: "",
   });
 
 

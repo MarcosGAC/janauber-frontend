@@ -4,7 +4,7 @@ import { View, Image,TouchableOpacity, Text } from "react-native";
 import LoginScreen from "./components/screens/loginScreen";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import HomePassageiroWDrawer from "./components/screens/passageiro/homePassageiro";
+import HomePassageiroWDrawer from "./components/screens/passanger/homePassageiro";
 import HomeDriverDrawer from "./components/screens/driver";
 import Register from "./components/screens/registerScreen";
 

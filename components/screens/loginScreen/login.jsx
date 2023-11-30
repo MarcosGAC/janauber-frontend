@@ -9,20 +9,24 @@ function Login({
   setStatus,
   navigation,
   userMock,
+  setLoggedUser, // Receba a função setLoggedUser como uma propriedade
 }) {
   const [email, setEmail] = useState('teste@gmail.com')
+
   function validate() {
     if (
       userMock[0].email === email &&
       userMock[0].password === password &&
       userMock[0].type === "passanger"
     ) {
+      setLoggedUser(userMock[0]); // Defina o usuário logado
       return navigation.navigate("HomePassageiroWDrawer");
     } else if (
       userMock[1].email === email &&
       userMock[1].password === password &&
       userMock[1].type === "driver"
     ) {
+      setLoggedUser(userMock[1]); // Defina o usuário logado
       return navigation.navigate("HomeDriverDrawer"); 
     } else {
       return setStatus("Email ou senha inválidos");

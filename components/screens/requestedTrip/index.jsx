@@ -9,12 +9,14 @@ const TripRequest = ({ navigation }) => {
       passengerName: "João",
       destination: "Shopping Center",
       accepted: false,
+      passageiros: 2,
     },
     {
       id: 2,
       passengerName: "Maria",
       destination: "Airport",
       accepted: false,
+      passageiros: 4,
     },
   ]);
 
@@ -34,6 +36,7 @@ const TripRequest = ({ navigation }) => {
     <View style={tw`border border-gray-300 rounded-md p-3 mb-3`}>
       <Text>{`Passenger: ${item.passengerName}`}</Text>
       <Text>{`Destination: ${item.destination}`}</Text>
+      <Text>{`Passengers: ${item.passageiros}`}</Text>
       {item.accepted ? (
         <Text style={tw`text-green-500`}>Accepted</Text>
       ) : (

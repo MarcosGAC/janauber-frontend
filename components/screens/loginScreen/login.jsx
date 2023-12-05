@@ -9,28 +9,14 @@ function Login({
   setStatus,
   navigation,
   userMock,
-  setLoggedUser, // Receba a função setLoggedUser como uma propriedade
+  setLoggedUser, 
+  validate
 }) {
-  const [email, setEmail] = useState('teste@gmail.com')
+  const [email, setEmail] = useState('erick@dev.com')
 
-  function validate() {
-    if (
-      userMock[0].email === email &&
-      userMock[0].password === password &&
-      userMock[0].type === "passanger"
-    ) {
-      setLoggedUser(userMock[0]); // Defina o usuário logado
-      return navigation.navigate("HomePassageiroWDrawer");
-    } else if (
-      userMock[1].email === email &&
-      userMock[1].password === password &&
-      userMock[1].type === "driver"
-    ) {
-      setLoggedUser(userMock[1]); // Defina o usuário logado
-      return navigation.navigate("HomeDriverDrawer"); 
-    } else {
-      return setStatus("Email ou senha inválidos");
-    }
+  function validateUser() {
+    validate()
+    console.log(validate)
   }
   function forgot() {
     setStatus("");
@@ -70,7 +56,7 @@ function Login({
         </Text>
       </TouchableOpacity>
       <TouchableOpacity
-        onPress={() => validate()}
+        onPress={() => validateUser() }
         style={tw`mt-10 bg-green-500 hover:bg-green-100 text-white font-bold py-2 px-4 rounded`}
       >
         <Text>LOGIN</Text>

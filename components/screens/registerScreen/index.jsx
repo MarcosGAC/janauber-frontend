@@ -1,51 +1,49 @@
 import React, { useState } from "react";
-import { Text, View, Picker,TouchableOpacity } from "react-native";
+import { Text, View, Picker, TouchableOpacity } from "react-native";
 import tw from "twrnc";
 import TaxiRegister from "./taxiRegister";
 import PassengerRegister from "./passengerRegister";
+import { createPassengerUser, createDriverUser } from "../../../utils/userAPI";
 
 function Register({ navigation }) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
   const [userType, setUserType] = useState("passageiro");
-  const [vehicleInfo, setVehicleInfo] = useState({
-    placa: "",
-    modelo: "",
-    ano: "",
-    cor: "",
-  });
   const [driverInfo, setDriverInfo] = useState({
-    proprietarioVeiculo: "",
+    name: "",
+    email: "",
+    password: "",
     cpf: "",
+    birthday: "",
   });
   const [passengerInfo, setPassengerInfo] = useState({
     cpf: "",
-    endereco: "",
-    nome: "",
-    idade: "",
+    name: "",
+    birthday: "",
+    email: "",
+    password: "",
   });
 
-
   const handleRegister = () => {
-
-
     if (userType === "taxi") {
-      console.log("Driver Info:", driverInfo);
-      console.log("Email:", email);
-      console.log("Password:", password);
-      console.log("Name:", name);
-      console.log("User Type:", userType);
-      console.log("Vehicle Info:", vehicleInfo);
+      createDriverUser(driverInfo)
+        .then((response) => {
+          console.log("Novo usuário motorista criado:", response);
+        })
+        .catch((error) => {
+          console.error("Erro ao criar usuário motorista:", error);
+        });
     } else {
-      console.log("Passenger Info:", passengerInfo);
+      createPassengerUser(passengerInfo)
+        .then((response) => {
+          console.log("Novo usuário passageiro criado:", response);
+        })
+        .catch((error) => {
+          console.error("Erro ao criar usuário passageiro:", error);
+        });
     }
-
   };
 
   return (
     <View style={tw`flex-1 justify-center items-center w-full h-screen`}>
-  
       <Text style={tw`text-blue-900 mb-4`}>Registro</Text>
 
       <View
@@ -53,7 +51,10 @@ function Register({ navigation }) {
       >
         <Picker
           selectedValue={userType}
-          onValueChange={(itemValue, itemIndex) => setUserType(itemValue)}
+          onValueChange={(itemValue, itemIndex) => {
+            console.log("Novo valor selecionado:", itemValue);
+            setUserType(itemValue);
+          }}
         >
           <Picker.Item label="Passageiro" value="passageiro" />
           <Picker.Item label="Taxi" value="taxi" />
@@ -61,11 +62,9 @@ function Register({ navigation }) {
       </View>
 
       {userType === "taxi" && (
-        <TaxiRegister
-          driverInfo={driverInfo}
-          setDriverInfo={setDriverInfo}
-          vehicleInfo={vehicleInfo}
-          setVehicleInfo={setVehicleInfo}
+        <TaxiRegister 
+        driverInfo={driverInfo} 
+        setDriverInfo={setDriverInfo} 
         />
       )}
 

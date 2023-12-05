@@ -20,7 +20,7 @@ function TripDetails({ tripInfo, onDeleteTrip }) {
         <Text style={tw`text-base`}>Bairro: {tripInfo.bairro}</Text>
         <Text style={tw`text-base`}>Rua: {tripInfo.rua}</Text>
         <Text style={tw`text-base`}>Número: {tripInfo.numero}</Text>
-        <Text style={tw`text-base`}>Quantidade de vagas: {tripInfo.vagas}</Text>
+        <Text style={tw`text-base`}>Quantidade de passageiros: {tripInfo.passageiros}</Text>
         <Text style={tw`text-base`}>Data e Hora: {tripInfo.date}</Text>
       </View>
 

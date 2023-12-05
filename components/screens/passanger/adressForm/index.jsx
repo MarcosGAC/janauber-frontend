@@ -13,7 +13,7 @@ export default function AdressForm() {
     bairro: "Centro",
     rua: "Avenida Paulista",
     numero: "1000",
-    vagas: "2",
+    passageiros: "2",
     date: "2023-12-15T08:30:00.000Z",
   });
   const [address, setAddress] = useState({
@@ -21,7 +21,7 @@ export default function AdressForm() {
     bairro: "",
     rua: "",
     numero: "",
-    vagas: "",
+    passageiros: "",
   });
 
   const addressFields = [
@@ -30,9 +30,9 @@ export default function AdressForm() {
     { placeholder: "Rua", value: address.rua, fieldName: "rua" },
     { placeholder: "Número", value: address.numero, fieldName: "numero" },
     {
-      placeholder: "Quantidade de vagas",
-      value: address.vagas,
-      fieldName: "vagas",
+      placeholder: "Quantidade de passageiros",
+      value: address.passageiros,
+      fieldName: "passageiros",
     },
   ];
 
@@ -46,8 +46,8 @@ export default function AdressForm() {
         address.rua +
         ", Número: " +
         address.numero +
-        ", Vagas: " +
-        address.vagas +
+        ", Passageiros: " +
+        address.passageiros +
         ", Data e Hora: " +
         value.toISOString()
     );
@@ -66,7 +66,7 @@ export default function AdressForm() {
       bairro: address.bairro,
       rua: address.rua,
       numero: address.numero,
-      vagas: address.vagas,
+      passageiros: address.passageiros,
       date: value.toISOString(),
     };
     setRegisteredTripInfo(tripData);
